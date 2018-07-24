@@ -51,11 +51,13 @@ final class DetectParametersCompilerPass implements CompilerPassInterface
         $process = new Process('git config --get remote.origin.url');
         $process->run();
 
-        $githubUrl = trim($process->getOutput());
+        $githubUrl = trim($process->getOutput()); 
         $githubUrl = rtrim($githubUrl, '.git');
-        $githubUrl = str_replace(':', '/', $githubUrl);
-        $githubUrl = substr($githubUrl, strlen('git@'));
-
-        return 'https://' . $githubUrl;
+        if(strpos($githubUrl, 'git@') !== false) {
+            $githubUrl = str_replace(':', '/', $githubUrl);
+            $githubUrl = str_replace('git@', 'https://', $githubUrl);
+        }
+        
+        return $githubUrl;
     }
 }
