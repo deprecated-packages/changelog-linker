@@ -27,7 +27,7 @@ The config is autodiscovered in the root directory or by `--config` option.
 ## A. Dump Merges
 
 ```bash
-vendor/bin/changelog-linker dump-mergers
+vendor/bin/changelog-linker dump-merges
 ```
 
 ### Write or Dry-run?
