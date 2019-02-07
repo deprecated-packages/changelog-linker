@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Symplify\ChangelogLinker\DependencyInjection;
+namespace Symplify\ChangelogLinker\HttpKernel;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
