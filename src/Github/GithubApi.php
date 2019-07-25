@@ -131,9 +131,7 @@ final class GithubApi
 
     private function getMergedAtByPullRequest(int $id): ?string
     {
-        $url = sprintf(self::URL_PULL_REQUEST_BY_ID, $this->repositoryName, $id);
-        $response = $this->getResponseToUrl($url);
-        $json = $this->responseFormatter->formatToJson($response);
+        $json = $this->getSinglePullRequestJson($id);
 
         return $json['merged_at'] ?? null;
     }
@@ -179,5 +177,30 @@ final class GithubApi
         $message = $reason . PHP_EOL . 'Create a token at https://github.com/settings/tokens/new with only repository scope and use it as ENV variable: "GITHUB_TOKEN=... vendor/bin/changelog-linker ..." option.';
 
         return new GithubApiException($message, $throwable->getCode(), $throwable);
+    }
+
+    /**
+     * @param int $pullRequestId
+     * @param string $baseBranch
+     * @return bool
+     */
+    public function isPullRequestMergedToBaseBranch(int $pullRequestId, string $baseBranch): bool
+    {
+        $json = $this->getSinglePullRequestJson($pullRequestId);
+
+        return $json['base']['ref'] === $baseBranch;
+    }
+
+    /**
+     * @param int $pullRequestId
+     * @return array
+     */
+    private function getSinglePullRequestJson(int $pullRequestId): array
+    {
+        $url = sprintf(self::URL_PULL_REQUEST_BY_ID, $this->repositoryName, $pullRequestId);
+        $response = $this->getResponseToUrl($url);
+        $json = $this->responseFormatter->formatToJson($response);
+
+        return $json;
     }
 }

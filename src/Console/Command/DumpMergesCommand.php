@@ -194,6 +194,31 @@ final class DumpMergesCommand extends Command
             return (int) $sinceId;
         }
 
+        $baseBranch = $input->getOption(Option::BASE_BRANCH);
+
+        if ($baseBranch !== null) {
+            return $this->findHighestIdMergedInBranch($content, $baseBranch);
+        }
+
         return $this->idsAnalyzer->getHighestIdInChangelog($content);
+    }
+
+    /**
+     * @param string $content
+     * @param string $branch
+     * @return int|null
+     */
+    private function findHighestIdMergedInBranch(string $content, string $branch): ?int
+    {
+        $allIdsInChangelog = $this->idsAnalyzer->getAllIdsInChangelog($content);
+        rsort($allIdsInChangelog);
+
+        foreach ($allIdsInChangelog as $id) {
+            if ($this->githubApi->isPullRequestMergedToBaseBranch((int) $id, $branch)) {
+                return (int) $id;
+            }
+        }
+
+        return null;
     }
 }
