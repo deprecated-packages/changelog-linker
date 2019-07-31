@@ -1,6 +1,6 @@
 {
-    "name": "symplify/changelog-linker",
-    "description": "Generates beautiful CHANGELOG.md with links to PRs, versions and users grouped in Added/Changed/Fixed/Removed categories.",
+    "name": "shopsys/changelog-linker",
+    "description": "[FORK] Generates beautiful CHANGELOG.md with links to PRs, versions and users grouped in Added/Changed/Fixed/Removed categories.",
     "license": "MIT",
     "bin": [
         "bin/changelog-linker"
