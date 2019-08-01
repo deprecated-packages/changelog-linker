@@ -214,8 +214,9 @@ final class DumpMergesCommand extends Command
         rsort($allIdsInChangelog);
 
         foreach ($allIdsInChangelog as $id) {
-            if ($this->githubApi->isPullRequestMergedToBaseBranch((int) $id, $branch)) {
-                return (int) $id;
+            $idInt = (int) $id;
+            if ($this->githubApi->isPullRequestMergedToBaseBranch($idInt, $branch)) {
+                return $idInt;
             }
         }
 
