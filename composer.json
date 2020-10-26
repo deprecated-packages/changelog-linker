@@ -1,0 +1,40 @@
+{
+    "name": "symplify/changelog-linker",
+    "description": "Generates beautiful CHANGELOG.md with links to PRs, versions and users grouped in Added/Changed/Fixed/Removed categories.",
+    "license": "MIT",
+    "bin": [
+        "bin/changelog-linker"
+    ],
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.5|^7.0",
+        "nette/utils": "^3.0",
+        "symfony/console": "^4.4|^5.1",
+        "symfony/http-kernel": "^4.4|^5.1",
+        "symfony/process": "^4.4|^5.1",
+        "symplify/package-builder": "^8.3.48",
+        "symplify/set-config-resolver": "^8.3.48",
+        "symplify/smart-file-system": "^8.3.48",
+        "symplify/autowire-array-parameter": "^8.3.48"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Symplify\\ChangelogLinker\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Symplify\\ChangelogLinker\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "8.4-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
