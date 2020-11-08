@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Symplify\ChangelogLinker\Configuration;
+namespace Symplify\ChangelogLinker\ValueObject;
 
 final class Category
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Symplify\ChangelogLinker\Regex;
+namespace Symplify\ChangelogLinker\ValueObject;
 
 /**
  * @see \Symplify\ChangelogLinker\Tests\Regex\RegexPatternTest
@@ -20,13 +20,13 @@ final class RegexPattern
      * @var string
      * @see https://regex101.com/r/n28u2E/1
      */
-    public const USER = '(?<reference>@(?!(var))[\w\d-]+)';
+    public const USER_REGEX = '(?<reference>@(?!(var))[\w\d-]+)';
 
     /**
      * @var string
      * @see https://regex101.com/r/c9P7PS/1
      */
-    public const VERSION = '(?<version>(v|[\d])[\w\d\.-]+)';
+    public const VERSION_REGEX = '(?<version>(v|[\d])[\w\d\.-]+)';
 
     /**
      * @var string
