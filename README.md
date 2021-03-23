@@ -1,4 +1,8 @@
-# Changelog Linker
+# [DEPREACATED] Changelog Linker 
+
+## This package is deprecated. Do you want to take it over or look for replacement? [See the issue](https://github.com/symplify/symplify/issues/3027)
+
+<br>
 
 [![Downloads](https://img.shields.io/packagist/dt/symplify/changelog-linker.svg?style=flat-square)](https://packagist.org/packages/symplify/changelog-linker/stats)
 
